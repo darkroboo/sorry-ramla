@@ -5,47 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
-            background: #ffe6ec;
+            background: linear-gradient(to bottom, #ffe6ec, #ffd6e7);
             text-align: center;
-            padding: 40px;
+            overflow: hidden;
         }
-        .box {
+
+        .container {
+            position: relative;
+            top: 15%;
             background: white;
-            padding: 25px;
+            margin: auto;
+            padding: 30px;
             border-radius: 20px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            display: inline-block;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            width: 90%;
             max-width: 400px;
         }
-        h1 { color: #ff4d6d; }
-        p { font-size: 18px; color: #444; line-height: 1.6; }
+
+        h1 {
+            color: #ff4d6d;
+        }
+
+        p {
+            font-size: 18px;
+            color: #444;
+            line-height: 1.6;
+        }
+
         button {
+            margin-top: 15px;
             padding: 12px 25px;
+            font-size: 16px;
             border: none;
             border-radius: 10px;
             background: #ff4d6d;
             color: white;
-            font-size: 16px;
             cursor: pointer;
+        }
+
+        button:hover {
+            background: #e63956;
+        }
+
+        /* Floating hearts */
+        .heart {
+            position: absolute;
+            color: #ff4d6d;
+            animation: float 6s linear infinite;
+            font-size: 20px;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh);
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="box">
-        <h1>I'm Sorry Ramla ❤️</h1>
-        <p>
-            Dear Ramla,<br><br>
-            This is Taha.<br>
-            I am truly sorry for everything.<br><br>
-            I never wanted to hurt you.<br>
-            You mean a lot to me and I really miss you.<br><br>
-            Please forgive me and give me one chance to make things right.<br>
-            I promise to be better… for us. 💫
-        </p>
-        <button onclick="alert('Thank you for forgiving me ❤️ - Taha')">
-            Forgive Me?
-        </button>
-    </div>
+
+<div class="container">
+    <h1>I'm Sorry Ramla ❤️</h1>
+    <p>
+        Dear Ramla,<br><br>
+        This is Taha.<br>
+        I’m truly sorry for everything.<br><br>
+        I never meant to hurt you.<br>
+        You mean so much to me, and I really miss you.<br><br>
+        Please forgive me and give me one chance to make things right.<br>
+        I promise to be better… for us. 💫
+    </p>
+
+    <button onclick="alert('Thank you for forgiving me ❤️ - Taha')">
+        Forgive Me?
+    </button>
+</div>
+
+<script>
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+        heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 6000);
+    }
+
+    setInterval(createHeart, 300);
+</script>
+
 </body>
-</htm
+</h
